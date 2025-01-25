@@ -14,3 +14,14 @@ sudo sh -c 'echo "/home/lenni/.nix-profile/bin/fish" >> /etc/shells'
 chsh -s /home/lenni/.nix-profile/bin/fish
 # reload
 ```
+
+#### Further Steps
+
+- add to `/etc/wsl.conf`:
+
+    ```bash
+    [interop]
+    appendWindowsPath = false
+    ```
+
+-  install doas and add `permit nopass <USER>` to `/etc/doas.conf`
