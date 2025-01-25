@@ -19,7 +19,7 @@
 				];
 			};
 			debianwsl = home-manager.lib.homeManagerConfiguration {
-				pkgs = import nixpkgs { system = "x86_64-linux"; };
+				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
 				modules = [
 					./common/default.nix
 					./configs/dev.nix
