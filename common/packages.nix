@@ -1,14 +1,11 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    neofetch
-    ranger
-    bat
-    gdb
-    eza
-    rm-improved
-    ripgrep
-    gitui
+    # TUI
+    gdb helix gitui ranger
+    # CLI
+    neofetch bat eza rm-improved 
+    # network
     curl wget
   ];
 }

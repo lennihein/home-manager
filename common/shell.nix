@@ -13,6 +13,7 @@
 			run =''gcc $argv -o run_tmp && ./run_tmp; set ret_code $status || echo && rm run_tmp && echo "exit code: "$ret_code'';
 			gitignore = ''echo "$argv" >> .gitignore'';
 			gtree = "git log --all --decorate --graph --abbrev-commit --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)';";
+			detached = "$argv .&> /dev/null & && disown";
 		};
 
 		shellAbbrs = {

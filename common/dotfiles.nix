@@ -11,19 +11,10 @@
       --style="numbers,changes,header"
     '';
 
-    ".config/starship.toml" = {
-        source = ../files/starship.toml;
-    };
+    ".config/starship.toml".source = ../files/starship.toml;
 
-    ".vimrc" = {
-        source = ../files/vimrc;
-    };
+    ".config/helix/config.toml".source = ../files/helix.toml;
 
-    # ".config/ranger/rc.conf".text = ''
-
-    # '';
-    # ".config/neofetch/config.conf".text = ''
-
-    # '';
+    ".config/neofetch/config.conf".source = ../files/neofetch.conf;
   };
 }
