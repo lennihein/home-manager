@@ -1,0 +1,31 @@
+{
+	description = "Home configuration";
+
+	inputs = {
+		nixpkgs.url = "github:NixOS/nixpkgs";
+		home-manager.url = "github:nix-community/home-manager";
+	};
+
+	outputs = { self, nixpkgs, home-manager }: {
+		homeConfigurations = {
+			archwsl = home-manager.lib.homeManagerConfiguration {
+				pkgs = import nixpkgs { system = "x86_64-linux"; };
+				modules = [
+					./common/default.nix
+					./configs/guest.nix
+					./configs/wsl.nix
+					./configs/arch.nix
+				];
+			};
+			debianwsl = home-manager.lib.homeManagerConfiguration {
+				pkgs = import nixpkgs { system = "x86_64-linux"; };
+				modules = [
+					./common/default.nix
+					./configs/guest.nix
+					./configs/wsl.nix
+					./configs/debian.nix
+				];
+			};
+		};
+	};
+}
