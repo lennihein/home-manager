@@ -4,7 +4,7 @@
     # TUI
     gdb helix gitui ranger
     # CLI
-    neofetch bat eza rm-improved 
+    neofetch bat eza rm-improved duf
     # network
     curl wget
   ];
