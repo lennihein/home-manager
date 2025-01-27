@@ -17,6 +17,7 @@
 					./configs/wsl.nix
 					./configs/arch.nix
 				];
+				home.file.".config/neofetch/config.conf".source = ../files/neofetch_archwsl.conf;
 			};
 			debianwsl = home-manager.lib.homeManagerConfiguration {
 				pkgs = import nixpkgs { system = "x86_64-linux"; };

@@ -14,7 +14,5 @@
     ".config/starship.toml".source = ../files/starship.toml;
 
     ".config/helix/config.toml".source = ../files/helix.toml;
-
-    ".config/neofetch/config.conf".source = ../files/neofetch.conf;
   };
 }
