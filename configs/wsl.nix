@@ -13,5 +13,6 @@
 		".config/fish/conf.d/wsl.fish" = {
 				source = ../files/wsl.fish;
 		};
+		home.file.".config/neofetch/config.conf".source = ../files/neofetch_wsl.conf;
 	};
 }
