@@ -29,6 +29,14 @@
 					./configs/debian.nix
 				];
 			};
+			debian-headless = home-manager.lib.homeManagerConfiguration {
+				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
+				modules = [
+					./common/default.nix
+					./configs/guest.nix
+					./configs/debian.nix
+				];
+			};
 		};
 	};
 }
