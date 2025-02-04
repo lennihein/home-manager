@@ -9,7 +9,8 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 git clone https://github.com/lennihein/home-manager.git
 nix-shell -p home-manager
-home-manager switch --flake home-manager/#debianwsl
+# experimental features might be disabled on some systems, so enable for the initial home-manager command
+home-manager switch --flake home-manager/#debianwsl --experimental-features 'nix-command flakes'
 sudo sh -c 'echo "/home/lenni/.nix-profile/bin/fish" >> /etc/shells'
 chsh -s /home/lenni/.nix-profile/bin/fish
 # reload

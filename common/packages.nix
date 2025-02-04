@@ -2,9 +2,9 @@
 {
   home.packages = with pkgs; [
     # TUI
-    gdb helix gitui ranger
+    gdb helix gitui ranger gdu bottom
     # CLI
-    neofetch bat eza rm-improved duf xcp
+    neofetch bat eza rm-improved duf xcp less
     # network
     curl wget
   ];
