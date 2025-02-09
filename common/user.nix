@@ -5,6 +5,8 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
-    PAGER = "less";
-	};
+    PAGER = "bat";
+    TERMINAL = "kitty";
+    BROWSER = "google-chrome-stable";
+  };
 }

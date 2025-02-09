@@ -2,7 +2,7 @@
 {
 
 	imports = [
-
+		./hidpi.nix
 	];
 
 	home.file = {
