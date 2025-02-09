@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
-	nix = {
-		package = pkgs.nix;
-		settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    package = lib.mkDefault pkgs.nix;  # Lower priority
+    settings.experimental-features = [ "nix-command" "flakes" ];
   };
 }
