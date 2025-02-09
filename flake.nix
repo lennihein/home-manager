@@ -50,7 +50,7 @@
 				modules = [
 					./common/default.nix
 					./configs/dev.nix
-                    ./congigs/nixos.nix
+                    ./configs/nixos.nix
 				];
 			};
 		};
