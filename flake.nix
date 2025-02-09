@@ -7,6 +7,13 @@
 	};
 
 	outputs = { self, nixpkgs, home-manager }: {
+		nixosModules.default = { ... }: {
+      imports = [
+        ./common/default.nix
+        ./configs/dev.nix
+      ];
+    };
+		
 		homeConfigurations = {
 			archwsl = home-manager.lib.homeManagerConfiguration {
 				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
@@ -42,7 +49,6 @@
 				modules = [
 					./common/default.nix
 					./configs/dev.nix
-					./configs/nixos.nix
 				];
 			};
 		};
