@@ -11,6 +11,7 @@
       imports = [
         ./common/default.nix
         ./configs/dev.nix
+        ./configs/nixos.nix
       ];
     };
 		
@@ -49,6 +50,7 @@
 				modules = [
 					./common/default.nix
 					./configs/dev.nix
+                    ./congigs/nixos.nix
 				];
 			};
 		};
