@@ -37,6 +37,14 @@
 					./configs/debian.nix
 				];
 			};
+			nixos = home-manager.lib.homeManagerConfiguration {
+				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
+				modules = [
+					./common/default.nix
+					./configs/dev.nix
+					./configs/nixos.nix
+				];
+			};
 		};
 	};
 }
