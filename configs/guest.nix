@@ -13,7 +13,7 @@
 		};
 	};
     nix = {
-      package = lib.mkDefault pkgs.nix;  # Lower priority
+      package = pkgs.nix;  
       settings.experimental-features = [ "nix-command" "flakes" ];
     };
 }
