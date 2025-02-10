@@ -8,12 +8,12 @@
 
 	outputs = { self, nixpkgs, home-manager }: {
 		nixosModules.default = { ... }: {
-      imports = [
-        ./common/default.nix
-        ./configs/dev.nix
-        ./configs/nixos.nix
-      ];
-    };
+            imports = [
+                ./common/default.nix
+                ./configs/dev.nix
+                ./configs/nixos.nix
+            ];
+        };  
 		
 		homeConfigurations = {
 			archwsl = home-manager.lib.homeManagerConfiguration {
