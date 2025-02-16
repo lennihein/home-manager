@@ -1,26 +1,35 @@
-# pwndbg.nix
-{ config, pkgs, ... }:
+pwndbg.nix Home Manager Module
 
-let
-  pwndbg = import (builtins.fetchTarball {
-    url = "https://github.com/pwndbg/pwndbg/archive/refs/heads/master.tar.gz";
-  }) { };
-in
 {
-  home.file.".gdbinit" = {
-    source = ''
-      source ${pwndbg}/gdbinit.py
-    '';
-    mode = "0644";
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit (lib) mkEnableOption mkIf mkOption types;
+in {
+  options.programs.pwndbg = {
+    enable = mkEnableOption "pwndbg";
+
+    package = mkOption {
+      type = types.package;
+      default = pkgs.callPackage
+        (pkgs.fetchFromGitHub {
+          owner = "pwndbg";
+          repo = "pwndbg";
+          rev = "master"; # You might want to pin this to a specific commit
+          sha256 = lib.fakeHash; # Replace this with the actual hash
+        })
+        {};
+      description = "The pwndbg package to use";
+    };
   };
 
-  environment.variables.GDBINIT = "${pkgs.writeText "gdbinit" ''
-    source ${pwndbg}/gdbinit.py
-  ''}/gdbinit";
-
-  home.packages = with pkgs; [
-    gdb
-    python3
-    pwndbg
-  ];
+  config = mkIf config.programs.pwndbg.enable {
+    home.packages = [
+      (pkgs.writeShellScriptBin "pwndbg" ''
+        ${config.programs.pwndbg.package}/bin/pwndbg "$@"
+      '')
+    ];
+  };
 }
