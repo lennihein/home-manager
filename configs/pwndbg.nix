@@ -8,13 +8,6 @@ let
   }) { };
 in
 {
-  home.file.".gdbinit" = {
-    source = ''
-      source ${pwndbg}/gdbinit.py
-    '';
-    mode = "0644";
-  };
-
   home.packages = with pkgs; [
     gdb
     pwndbg
