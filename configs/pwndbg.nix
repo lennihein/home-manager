@@ -15,14 +15,6 @@ in
     mode = "0644";
   };
 
-  home.users.lenni = {
-    environment.variables = {
-      GDBINIT = pkgs.writeText "gdbinit" ''
-        source ${pwndbg}/gdbinit.py
-      '';
-    };
-  };
-
   home.packages = with pkgs; [
     gdb
     pwndbg
