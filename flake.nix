@@ -14,7 +14,6 @@
                 ./configs/nixos.nix
 								./configs/pwndbg.nix
             ];
-						programs.pwndbg.enable = true;
         };  
 		
 		homeConfigurations = {
@@ -55,7 +54,6 @@
           ./configs/nixos.nix
 					./configs/pwndbg.nix
 				];
-				programs.pwndbg.enable = true;
 			};
 		};
 	};
