@@ -1,9 +1,5 @@
-pwndbg.nix Home Manager Module
-
 {
-  config,
-  lib,
-  pkgs,
+  config, lib, pkgs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf mkOption types;
