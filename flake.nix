@@ -50,7 +50,8 @@
 				modules = [
 					./common/default.nix
 					./configs/dev.nix
-                    ./configs/nixos.nix
+          ./configs/nixos.nix
+					./configs/pwndbg.nix
 				];
 			};
 		};
