@@ -13,8 +13,8 @@ in {
         (pkgs.fetchFromGitHub {
           owner = "pwndbg";
           repo = "pwndbg";
-          rev = "master"; # You might want to pin this to a specific commit
-          sha256 = lib.fakeHash; # Replace this with the actual hash
+          rev = "master";
+          sha256 = "sha256-75C2SswY93LF574xto5m75BpFJVMfoFQMJIP9v261ZQ=";
         })
         {};
       description = "The pwndbg package to use";
