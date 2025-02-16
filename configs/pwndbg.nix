@@ -15,11 +15,11 @@ in
     mode = "0644";
   };
 
-  home-manager.users.lenni = {
+  home.users.lenni = {
     environment.variables = {
-      GDBINIT = "${pkgs.writeText "gdbinit" ''
+      GDBINIT = pkgs.writeText "gdbinit" ''
         source ${pwndbg}/gdbinit.py
-      ''}/gdbinit";
+      '';
     };
   };
 
