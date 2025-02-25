@@ -5,7 +5,7 @@
           owner = "pwndbg";
           repo = "pwndbg";
           rev = "master";
-          sha256 = "sha256-75C2SswY93LF574xto5m75BpFJVMfoFQMJIP9v261ZQ=";
+          sha256 = "sha256-OcwULIZcWOC1FNGa0SNGtyMyfbwTsBj17LBPpGOZL78=";
     }) {};
 in {
     home.packages = [ pwndbg-flake ];
