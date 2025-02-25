@@ -12,8 +12,7 @@
                 ./common/default.nix
                 ./configs/dev.nix
                 ./configs/nixos.nix
-								./configs/pwndbg.nix
-            ];
+           ];
         };  
 		
 		homeConfigurations = {
@@ -52,7 +51,6 @@
 					./common/default.nix
 					./configs/dev.nix
           ./configs/nixos.nix
-					./configs/pwndbg.nix
 				];
 			};
 		};
