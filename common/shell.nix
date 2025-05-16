@@ -19,7 +19,8 @@
 
 		shellAbbrs = {
 			l = "exa -la";
-            ls = "exa";
+			ll = "exa -l"
+      ls = "exa";
 			tree = "exa -T";
 			rm = "rip";
 			rm_ = "rm";
