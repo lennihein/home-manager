@@ -2,8 +2,11 @@
 	description = "Home configuration";
 
 	inputs = {
-		nixpkgs.url = "github:NixOS/nixpkgs";
-		home-manager.url = "github:nix-community/home-manager";
+		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+		home-manager = {
+			url = "github:nix-community/home-manager";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
 	outputs = { self, nixpkgs, home-manager }: {
