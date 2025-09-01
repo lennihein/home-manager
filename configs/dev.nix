@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgsStable, ... }:
 {
   home.packages = with pkgs; [
-    ghidra gitkraken meld vscode obsidian termius
-  ];
+    ghidra gitkraken meld vscode obsidian
+  ] ++ [ pkgsStable.termius ];
 }
