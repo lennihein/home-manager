@@ -8,12 +8,12 @@
 
 	outputs = { self, nixpkgs, home-manager }: {
 		nixosModules.default = { ... }: {
-            imports = [
-                ./common/default.nix
-                ./configs/dev.nix
-                ./configs/nixos.nix
-           ];
-        };  
+			imports = [
+				./common/default.nix
+				./configs/dev.nix
+				./configs/nixos.nix
+		   ];
+		};  
 		
 		homeConfigurations = {
 			archwsl = home-manager.lib.homeManagerConfiguration {
@@ -44,8 +44,8 @@
 					./configs/dev.nix
 					./configs/guest.nix
 					./configs/wsl.nix
-						./configs/debian.nix
-						./configs/pandoc.nix
+					./configs/debian.nix
+					./configs/pandoc.nix
 				];
 			};
 			debian-headless = home-manager.lib.homeManagerConfiguration {
