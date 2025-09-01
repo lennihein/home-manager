@@ -37,17 +37,6 @@
 					./configs/debian.nix
 				];
 			};
-			"debianwsl-pandoc" = home-manager.lib.homeManagerConfiguration {
-				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
-				modules = [
-					./common/default.nix
-					./configs/dev.nix
-					./configs/guest.nix
-					./configs/wsl.nix
-					./configs/debian.nix
-					./configs/pandoc.nix
-				];
-			};
 			debian-headless = home-manager.lib.homeManagerConfiguration {
 				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
 				modules = [
