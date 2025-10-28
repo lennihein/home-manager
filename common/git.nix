@@ -2,9 +2,11 @@
 {
   programs.git = {
     enable = true;
-    userName = "Lenni Hein";
-    userEmail = "git@lennihein.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Lenni Hein";
+        email = "git@lennihein.com";
+      };
       color.ui = "auto";
       alias.st = "status";
       alias.co = "checkout";
