@@ -18,10 +18,10 @@
 		};
 
 		shellAbbrs = {
-			l = "exa -la";
-			ll = "exa -l";
-      ls = "exa";
-			tree = "exa -T";
+			l = "eza -la";
+			ll = "eza -l";
+      ls = "eza";
+			tree = "eza -T";
 			rm = "rip";
 			rm_ = "rm";
 			py = "python3";
