@@ -6,6 +6,6 @@
     # CLI
     bat eza rm-improved duf xcp less codex gemini-cli gh
     # network
-    curl wget openssh
+    curl wget
   ];
 }
