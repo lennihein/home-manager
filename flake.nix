@@ -15,11 +15,22 @@
 			imports = [
 				./common/default.nix
 				./configs/dev.nix
-				./configs/nixos.nix
+				./configs/desktop.nix
 		   ];
 		};  
 		
 		homeConfigurations = {
+			debianwsl = home-manager.lib.homeManagerConfiguration {
+				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
+				extraSpecialArgs = { pkgsStable = import nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true; }; };
+				modules = [
+					./common/default.nix
+					./configs/dev.nix
+					./configs/guest.nix
+					./configs/wsl.nix
+					./configs/debian.nix
+				];
+			};
 			archwsl = home-manager.lib.homeManagerConfiguration {
 				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
 				extraSpecialArgs = { pkgsStable = import nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true; }; };
@@ -30,17 +41,6 @@
 					./configs/wsl.nix
 					./configs/arch.nix
 					./configs/archwsl.nix
-				];
-			};
-			debianwsl = home-manager.lib.homeManagerConfiguration {
-				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
-				extraSpecialArgs = { pkgsStable = import nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true; }; };
-				modules = [
-					./common/default.nix
-					./configs/dev.nix
-					./configs/guest.nix
-					./configs/wsl.nix
-					./configs/debian.nix
 				];
 			};
 			debian-headless = home-manager.lib.homeManagerConfiguration {
@@ -58,7 +58,7 @@
 				modules = [
 					./common/default.nix
 					./configs/dev.nix
-					./configs/nixos.nix
+					./configs/desktop.nix
 				];
 			};
 		};

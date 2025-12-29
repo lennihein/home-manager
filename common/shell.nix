@@ -20,10 +20,11 @@
 		shellAbbrs = {
 			l = "eza -la";
 			ll = "eza -l";
-      ls = "eza";
+			ls = "eza";
+			lsla = "eza -la";
 			tree = "eza -T";
-			rm = "rip";
-			rm_ = "rm";
+			# rm = "rip";
+			# rm_ = "rm";
 			py = "python3";
 			gitclean = "git clean -d -i -x";
 			cp = "xcp";
