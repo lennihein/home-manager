@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 {
   home.file = {
-    
-    ".gdbinit".text = ''
-      source /usr/share/pwndbg/gdbinit.py
-    '';
 
     ".config/bat/config".text = ''
       --theme="Dracula"

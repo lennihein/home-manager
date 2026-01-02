@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pwndbg, ... }:
 {
   home.packages = with pkgs; [
     # TUI
@@ -7,5 +7,7 @@
     bat eza rm-improved duf xcp less codex gemini-cli-bin gh todoist
     # network
     curl wget
+    # debug
+    pwndbg
   ];
 }
