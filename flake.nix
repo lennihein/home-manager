@@ -11,37 +11,35 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, nixpkgs-stable, pwndbg, home-manager }: {
-		nixosModules.default = { ... }: {
-			imports = [
-				./common/default.nix
-				./configs/dev.nix
-				./configs/desktop.nix
-		   ];
-		};  
-		
-		homeConfigurations = {
-			debianwsl = home-manager.lib.homeManagerConfiguration {
-				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
-				extraSpecialArgs = { 
-					pkgsStable = import nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true; }; 
-					pwndbg = pwndbg.packages.x86_64-linux.pwndbg;
-				};
-				modules = [
+	outputs = { self, nixpkgs, nixpkgs-stable, pwndbg, home-manager }:
+		let
+			system = "x86_64-linux";
+			pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+			extraSpecialArgs = {
+				pkgsStable = import nixpkgs-stable { inherit system; config.allowUnfree = true; };
+				pwndbg = pwndbg.packages.${system}.pwndbg;
+			};
+			mkHome = modules: home-manager.lib.homeManagerConfiguration {
+				inherit pkgs extraSpecialArgs modules;
+			};
+		in {
+			nixosModules.default = { ... }: {
+				imports = [
+					./common/default.nix
+					./configs/dev.nix
+					./configs/desktop.nix
+				];
+			};
+
+			homeConfigurations = {
+				debianwsl = mkHome [
 					./common/default.nix
 					./configs/dev.nix
 					./configs/guest.nix
 					./configs/wsl.nix
 					./configs/debian.nix
 				];
-			};
-			archwsl = home-manager.lib.homeManagerConfiguration {
-				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
-				extraSpecialArgs = { 
-					pkgsStable = import nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true; }; 
-					pwndbg = pwndbg.packages.x86_64-linux.pwndbg;
-				};
-				modules = [
+				archwsl = mkHome [
 					./common/default.nix
 					./configs/dev.nix
 					./configs/guest.nix
@@ -49,31 +47,16 @@
 					./configs/arch.nix
 					./configs/archwsl.nix
 				];
-			};
-			debian-headless = home-manager.lib.homeManagerConfiguration {
-				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
-				extraSpecialArgs = { 
-					pkgsStable = import nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true; }; 
-					pwndbg = pwndbg.packages.x86_64-linux.pwndbg;
-				};
-				modules = [
+				debian-headless = mkHome [
 					./common/default.nix
 					./configs/guest.nix
 					./configs/debian.nix
 				];
-			};
-			nixos = home-manager.lib.homeManagerConfiguration {
-				pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
-				extraSpecialArgs = { 
-					pkgsStable = import nixpkgs-stable { system = "x86_64-linux"; config.allowUnfree = true; }; 
-					pwndbg = pwndbg.packages.x86_64-linux.pwndbg;
-				};
-				modules = [
+				nixos = mkHome [
 					./common/default.nix
 					./configs/dev.nix
 					./configs/desktop.nix
 				];
 			};
 		};
-	};
 }
