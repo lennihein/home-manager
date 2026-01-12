@@ -1,5 +1,5 @@
 function init_x
-    export DISPLAY=172.19.128.1:0.0
+    export DISPLAY=$(ip route show default | awk '{print $3}'):0.0
     export GDK_BACKEND=x11
 end
 
