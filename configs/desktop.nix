@@ -7,5 +7,7 @@
     antigravity
     gitkraken
     obsidian
+    jetbrains-toolbox
+    rustup
   ] ++ [ pkgsStable.termius ];
 }
